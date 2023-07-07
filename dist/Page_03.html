@@ -1,0 +1,170 @@
+
+<!-- ----->
+<html> 
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <link rel="stylesheet" href="css/bootstrap-reboot.min.css"/>
+    <link rel="stylesheet" href="css/main.css"/>
+    <script src="http://d3js.org/d3.v7.min.js"></script>
+    <title>Каталог</title>
+  </head>
+  <body> 
+    <div class="cont-2">
+      <div class="cont-1">
+        <div class="butt-1"><a href="index.html">Популярное</a></div>
+        <div class="butt-1"><a href="Page_02.html">Обзор</a></div>
+        <div class="butt-1"><a href="Page_03.html">Каталог</a></div>
+      </div>
+    </div>
+    <div class="my-block-1"></div>
+    <script type="text/javascript" src="js/table_data.js"></script>
+    <script type="text/javascript" src="js/table.js"></script>
+    <script type="text/javascript" src="js/graph.js"></script>
+    <details>
+      <summary>Блок настроек показа: </summary>
+      <div class="main-block">
+        <div class="block-01">
+          <div class="table">
+            <div class="title-1-1">
+              <p>График:</p>
+            </div>
+            <form name="graph">
+              <div class="left-edge-1">
+                <p class="title-1">Значение по оси OХ: </p>
+                <p>Название
+                  <input type="radio" name="ox" value="Название" checked="checked"/>
+                </p>
+                <p>Тип кузова
+                  <input type="radio" name="ox" value="Тип кузова"/>
+                </p>
+                <p>Поколение
+                  <input type="radio" name="ox" value="Поколение"/>
+                </p>
+                <p>Год начала выпуска
+                  <input type="radio" name="ox" value="Год начала выпуска"/>
+                </p>
+                <p>Год конца выпуска
+                  <input type="radio" name="ox" value="Год конца выпуска"/>
+                </p>
+              </div>
+              <div class="right-edge-1">
+                <p class="title-1">Результат: </p>
+                <p>Количество
+                  <input type="radio" name="oy" value="Количество" checked="checked"/>
+                </p>
+                <p>Средняя цена
+                  <input type="radio" name="oy" value="Средняя цена"/>
+                </p>
+              </div>
+              <input type="button" value="Построить график" onclick="onDrawGraphClicked(this.form)"/>
+            </form>
+          </div>
+        </div>
+        <div class="block-02">
+          <div class="table"> 
+            <div class="title-1-1">
+              <p>Фильтр:</p>
+            </div>
+            <div class="left-edge-1">
+              <p>Название </p>
+              <p>Тип кузова </p>
+              <p>Поколение</p>
+              <p>Год выпуска</p>
+            </div>
+            <div class="right-edge-1">
+              <p>
+                <input id="name" type="text" placeholder="Введите название"/>
+              </p>
+              <p>
+                <input id="name" type="text" placeholder="Не указано"/>
+              </p>
+              <p>
+                <input id="name" type="text" placeholder="Не указано"/>
+              </p>
+              <p>
+                <input id="name" type="text" placeholder="Введите год"/>
+              </p>
+            </div>
+            <button>Найти </button>
+          </div>
+        </div>
+        <div class="block-03">
+          <div class="table-2">
+            <div class="title-1-2">
+              <p>Сортировка:</p>
+            </div>
+            <div class="left-edge-2">
+              <p>Первый уровень</p>
+              <p>Второй уровень </p>
+              <p>Третий уровень</p>
+            </div>
+            <div class="center-edge-2">
+              <p> 
+                <select>
+                  <option value="0">Нет</option>
+                  <option value="1">Название</option>
+                  <option value="2">Тип кузова	</option>
+                  <option value="3">Поколение</option>
+                  <option value="4">Год выпуска	</option>
+                </select>
+              </p>
+              <p> 
+                <select>
+                  <option value="0">Нет</option>
+                  <option value="1">Название</option>
+                  <option value="2">Тип кузова	</option>
+                  <option value="3">Поколение</option>
+                  <option value="4">Год выпуска	</option>
+                </select>
+              </p>
+              <p> 
+                <select>
+                  <option value="0">Нет</option>
+                  <option value="1">Название</option>
+                  <option value="2">Тип кузова	</option>
+                  <option value="3">Поколение</option>
+                  <option value="4">Год выпуска	</option>
+                </select>
+              </p>
+            </div>
+            <div class="right-edge-2">
+              <p class="no-ind">по убыванию?
+                <input type="checkbox" name="ack1" value="ack1"/>
+              </p>
+              <p class="no-ind">по убыванию?
+                <input type="checkbox" name="ack1" value="ack1"/>
+              </p>
+              <p class="no-ind">по убыванию?
+                <input type="checkbox" name="ack1" value="ack1"/>
+              </p>
+            </div>
+            <button>Сортировать </button>
+          </div>
+        </div>
+      </div>
+    </details>
+    <svg></svg>
+    <div class="my-block-1"></div>
+    <table id="car-table">
+      <thead>
+        <tr>
+          <th>Название</th>
+          <th>Тип кузова</th>
+          <th>Поколение</th>
+          <th>Год начала выпуска</th>
+          <th>Год конца выпуска</th>
+          <th>Цена</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <div class="my-block-1"></div>
+  </body>
+  <div class="page-footer">
+    <div class="fixed-bottom"> 
+      <p>made by <a href="">Mikhail Gilko</a></p>
+      <p>Материал предоставлен для ознакомления</p>
+    </div>
+  </div>
+</html>
